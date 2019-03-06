@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="base :: header"></th:block>
+    <div class="jumbotron jumbotron-fluid"></div>
+</head>
+<body>
+<nav th:replace="base :: nav"></nav>
+<a href="/add">Add a Potluck</a><b/>
+<table class ="table">
+    <tr>
+        <th>Name</th>
+        <th>Dish</th>
+        <th>Action</th>
+
+    </tr>
+    <tr th:each="potluck : ${potluck}">
+
+        <td th:text="${potluck.name}"></td>
+        <td th:text="${potluck.dish}"></td>
+        <td th:if="${potluck.headshot} != null">
+            <img th:src="${potluck.headshot}" />
+        </td>
+        <td>
+            <a th:href="@{/update/{id}(id=${potluck.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${potluck.id})}">Detail</a>
+            <a th:href="@{/delete/{id}(id=${potluck.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<div/>
+<div class="jumbotron jumbotron-fluid">
+</div>
+<span th:replace="base :: jslinks" ></span>
+</body>
+</html>

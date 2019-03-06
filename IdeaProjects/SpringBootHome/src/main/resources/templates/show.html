@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Potluck</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<nav th:replace="base :: nav"></nav>
+
+        <h1>Potluck Detail</h1>
+    <a href="/">Show All Potluck</a><br/>
+    Name :<span th:text="${potluck.name}"></span><br/>
+   Dish :<span th:text="${potluck.dish}"></span><br/>
+        <a th:href="@{/delete/{id}(id=${potluck.id})}">Delete this potluck</a>
+
+<span th:replace="base :: jslinks" ></span>
+    </body>
+</html>
